@@ -534,11 +534,12 @@ select{
     }
     .fact-content{
       /* display: block; */
-      /* margin: 0; */
-      width: 100%;
+      margin: 10;
+      width: 95%;
     }
     .upper-fact{
       display: block;
+      margin: 10px;
       width: 100%;
     }
     .fact-pic{
@@ -560,7 +561,8 @@ select{
     }
     .card{
       display: block;
-      width: 90%;
+      width: 95%;
+      margin: 10px;
       height: auto;
     }
     .card-image,.card-image1,.card-image2,.card-image3,.card-image4,.card-image5{
@@ -595,9 +597,14 @@ select{
     }
     .brief-image{
       height: 500px;
-      width: 100%;
+      width: 95%;
       margin: 5px;
       margin-bottom: 10px;
+      -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+      
     }
     .testimonials{
       height: auto;
@@ -617,7 +624,7 @@ select{
     .choose-image{
       margin: 50px;
       height: 300px;
-      width: 90%;
+      width: 100%;
     }
     .footer{
       display: block;
@@ -629,7 +636,10 @@ select{
       width: 90%;
     }
     .part4{
-      margin-left: 20px;
+      margin-left: 40px;
+    }
+    .part1{
+      width: 100%;
     }
     .dealership{
       margin: 10px;
