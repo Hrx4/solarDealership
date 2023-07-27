@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +12,518 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+img{
+position: absolute;
+height: 60vh;
+  width: 100vw;
+}
+.CheckButton{
+  position: relative;
+}
+.image{
+  position: absolute;
+  height: 60vh;
+  width: 100vw;
+}
+/* ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+li{
+  margin-left: 40px;
+  width: 100px;
+} */
+.navlist{
+  display: flex;
+  width: 700px;
+  justify-content: center;
+}
+.navbar{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.logo{
+  height: 100px;
+  width: 150px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/solar-1.png");
+  background-size: cover;
+  margin-right: 100px;
+}
+.fact{
+  height: 60vh;
+  width: 100%;
+}
+.upper-fact{
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+.lower-fact{
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fact-content{
+  width: 35%;
+  height: 100%;
+}
+.fact-pic{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/bulb.png");
+  height: 100%;
+  width: 35%;
+  background-size: cover;
+}
+h1{
+  color: green;
+}
+.cards{
+  width: 100%;
+  height: 150vh;
+  display: flex;
+  flex-direction: column;
+}
+.card{
+  margin: 5px;
+  width: 33.33%;
+  height: 100%;
+  overflow-x: hidden;
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.col-2{
+  display: flex;
+  flex-direction: row;
+  height: 47%;
+  margin: 5px;
+}
+.card-image{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/solar-panels-work_resize_md-op93px70fl0epjh0aq8lvz3nyeui2p6akjwiyx164k.jpg");
+  height: 50%;
+  margin: 5px;
+  width: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+.card-image4{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/1_TUjh0pMJVdz7oKfF8gR3mQ.png");
+  height: 50%;
+  margin: 5px;
+  width: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+.card-image1{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/solar-installers-640x423-1-op93vk85fsqcdba3d600ujv89n1s9bkbcgtemoo4sk.jpg");
+  height: 50%;
+  margin: 5px;
+  width: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+.card-image2{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/Cloud-PMS-software-op94spz6je4hy343qi07t6mmozlxsx7f8lc243i5ac.jpg");
+  height: 50%;
+  margin: 5px;
+  width: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+.card-image3{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/uninterruptible-power-supply.jpg");
+  height: 50%;
+  margin: 5px;
+  width: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+.card-image5{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/Charging-Electric-Car.jpg");
+  height: 50%;
+  margin: 5px;
+  width: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+.card-text{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+.imagelist{
+  height: 90vh;
+  width: 100%;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/AdobeStock_519445978-scaled-1.jpeg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.list-image{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/solar-panel-installation-services-1511513769-3474189-opa6rky7ta8d4cl9retrsae8q8xp3whayzllc3kkvs.jpeg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image1{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/Telecom-Projects-Suffer-due-to-Increased-Taxation-on-Imports-of-Optical-Fiber-1-opa6v2wl930sc3ibbx9s2em0bvovrcdc4b0nn6dtq0.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image2{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/Solar-street-Light-1024x629-1-opa6wilpoyzk2nf7y1m9djkd02m2ip2knewd1e967s.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image3{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/commercial-electrical-works-500x500-1-opa6z6h922msyvjye727fvddldhibtn70lfvzmb0l4.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image4{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/solar5-opa6laf427m9ebqbi6woldk5kdy8kuhzrudkoewgjc.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image5{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/residential-solar-projects-1-onziq176zrjv6texixgwxlhkmusgy6xav47qpw601k.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image6{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/a9104f3423ac46717c53475810bb872444a3aaa5-onzj293nu8a24bny67mbcihan6k90jfojlizbe1r5k.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list-image7{
+  height: 150px;
+  width: 250px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/IMG_6388-onzg1udrm3vj3d4v7cnbrvbg7cw99925n0uyqiscs8.jpg");
+  background-size: cover;
+  border-radius: 10px;
+}
+.list1{
+  display: flex;
+  width: 100%;
+  margin-left: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 100px;
+}
+h3{
+  color: aliceblue;
+}
+.brief{
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.brief-text{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}
+.brief-image{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/Solar-Energy-Animation.gif");
+  background-size: cover;
+  width: 50%;
+  height: 100%;
+}
+.brief-part{
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+.testimonials{
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testi-part{
+  width: 80%;
+}
+
+.testimonials{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/High-Resolution-World-Map-scaled-1.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(1, 1, 1, 0.5);
+  background-blend-mode: multiply;  
+}
+
+.choose{
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.choose-part{
+  height: 80%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.choose-image{
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/solar-panels-meadow-scaled.jpg");
+  height: 70%;
+  width: 50%;
+  background-size: cover;
+  border-radius: 150%;
+}
+.choose-text{
+  width: 50%;
+  height: 70%;
+}
+.footer{
+  height: 60vh;
+  width: 100%;
+background-color: #001c38;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: aliceblue;
+}
+.part1>ul>li>h1{
+  color: aliceblue;
+}
+.upper-footer{
+  width: 80%;
+  height: 88%;
+  display: flex;
+  justify-content: center;
+  align-items:baseline;
+}
+
+h6{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.part1{
+
+  width: 25%;
+}
+
+.part4{
+  width: 25%;
+}
+.part1>ul{
+  list-style: none;
+}
+.navlist>ul{
+  list-style: none;
+}
+.navlist>ul>li{
+  display: inline-block;
+  margin: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+h4:hover{
+  color: green;
+  text-decoration: underline;
+}
+h4{
+  color: black;
+  text-decoration: none;
+}
+.main-heading , h2{
+  color: aliceblue;
+  margin-left: 15px;
+}
+.about{
+  height: 60vh;
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 60px;
+  margin-left: 300px;
+
+  flex-wrap: wrap;
+}
+.lower-about{
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/blue-solar-panels-1226088001-cee91a7ba920447280aed1d081b44859.jpg");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+}
+.about-text , .about-text1{
+  color: white;
+  margin:5px;
+}
+.gallery{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.gallery-heading{
+  display: flex;
+  height: 300px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/beautiful-alternative-energy-plant-with-solar-panels-scaled.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.galleryh1{
+  color: white;
+}
+
+.dealership{
+  margin-left: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  word-spacing: 0.2em;
+}
+
+
+
+
+/* ContactForm.css */
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  display: block;
+  /* width: 100%; */
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.contact , .contact-details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contact-details{
+  color: green;
+}
+
+
+
+
+
+/* ApplyNowForm.css */
+.apply-now-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+
+select{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;}
+
+  .ApplyNow{
+    height: 200px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .apply-btn{
+    width: 100%;
+  }
+  .dealership>h2{
+    color: black;
+  }
