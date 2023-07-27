@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <a href="#"><img src="https://solardealership.co.in/wp-content/uploads/2023/07/solar-1.png" alt="Logo" /></a>
+        <Link to={"/"}><img src="https://solardealership.co.in/wp-content/uploads/2023/07/solar-1.png" alt="Logo"/> </Link>
       </div>
       <ul className={`nav-links ${isNavOpen ? 'active' : ''}`}>
         <li><Link to={"/"}>Home</Link></li>
@@ -24,7 +24,7 @@ const Navbar = () => {
         <li><Link to={"/solardealership"}>Solar Dealership</Link></li>
         <li><Link to={"/contactus"}>Contact Us</Link></li>
         <li><Link to={"/applynow"}><Button variant='contained' color='success'>Apply Now</Button></Link></li>
-        <li className='cross'><a><CloseIcon  onClick={toggleNav} sx={{cursor:"pointer"}}/></a> </li>
+        <li className='cross'><CloseIcon  onClick={toggleNav} sx={{cursor:"pointer"}}/></li>
       </ul>
       <div className="burger" onClick={toggleNav}>
         <div className="line1"></div>
