@@ -658,9 +658,7 @@ background-size: cover;
       width: 95%;
       height: auto;
     }
-    .list-image{
-      /* width: 100%; */
-    }
+    
     .list1{
       margin: 0px;
     }
@@ -685,8 +683,8 @@ background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #333;
-  color: #fff;
+  background-color: white;
+  color: black;
   padding: 10px;
   height: 50px;
 }
@@ -710,7 +708,7 @@ background-size: cover;
 }
 
 .nav-links a {
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 
@@ -722,7 +720,7 @@ background-size: cover;
 .burger div {
   width: 25px;
   height: 3px;
-  background-color: #fff;
+  background-color: black;
   margin: 5px;
 }
 
@@ -731,12 +729,13 @@ background-size: cover;
     display: none;
     flex-direction: column;
     text-align: center;
-    background-color: #333;
+    background-color: white;
     position: absolute;
     width: 100%;
     z-index: 100;
     height: auto;
     margin-top: 380px;
+    color: black;
   }
 
   .nav-links.active {
@@ -755,5 +754,11 @@ background-size: cover;
 @media screen and (min-width: 650px) {
   .cross{
     display: none;
+    
   }
+}
+
+.nav-links li :hover{
+  color: green;
+  text-decoration: underline;
 }
