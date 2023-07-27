@@ -21,7 +21,7 @@ const fact = () => {
             </div>
         </div>
         <div className="lower-fact">
-            <Button variant='contained' color='success'>
+            <Button variant='contained' color='success' sx={{margin:"10px"}}>
                 Enquiry Now
             </Button>
         </div>

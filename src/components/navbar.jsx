@@ -1,64 +1,39 @@
+
+import React, { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
 import { Button } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
-    <>
-        <div className='navbar'>
-            <div className="logo">
-                
-            </div>
-            <div className="navlist">
-                <ul>
-                    <li >
-                        <Link  to={"/"} >
-                            <h4>
-                                Home
-                            </h4>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={"/about"}>
-                            <h4>
-                            About Us
-                            </h4>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={"/gallery"}>
-                            <h4>
-                            Gallery
-                            </h4>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={"/solardealership"}>
-                            <h4>
-                            Solar Dealership
-                            </h4>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={"/contactus"}>
-                            <h4>
-                            Contact Us
-                            </h4>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={"/applynow"}>
-                            <Button variant='contained' color='success'>
-                                Apply Now
-                            </Button>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
+    <nav className="navbar">
+      <div className="logo">
+        <a href="#"><img src="https://solardealership.co.in/wp-content/uploads/2023/07/solar-1.png" alt="Logo" /></a>
+      </div>
+      <ul className={`nav-links ${isNavOpen ? 'active' : ''}`}>
+        <li><Link to={"/"}>Home</Link></li>
+        <li><Link to={"/about"}>About Us</Link></li>
+        <li><Link to={"/gallery"}>Gallery</Link></li>
+        <li><Link to={"/solardealership"}>Solar Dealership</Link></li>
+        <li><Link to={"/contactus"}>Contact Us</Link></li>
+        <li><Link to={"/applynow"}><Button variant='contained' color='success'>Apply Now</Button></Link></li>
+        <li className='cross'><a><CloseIcon  onClick={toggleNav} sx={{cursor:"pointer"}}/></a> </li>
+      </ul>
+      <div className="burger" onClick={toggleNav}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
 
-        </div>
-    </>
-  )
-}
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
