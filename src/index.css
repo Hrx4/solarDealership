@@ -640,6 +640,7 @@ background-size: cover;
     }
     .part4{
       margin-left: 40px;
+      width: 80%;
     }
     .part1{
       width: 100%;
@@ -749,6 +750,12 @@ background-size: cover;
   .burger {
     display: block;
   }
+  .contact-details{
+    margin: 10px;
+  }
+  .contact{
+    margin: 10px;
+  }
 }
 
 @media screen and (min-width: 650px) {
@@ -756,6 +763,7 @@ background-size: cover;
     display: none;
     
   }
+  
 }
 
 .nav-links li :hover{
