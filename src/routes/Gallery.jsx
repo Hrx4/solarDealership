@@ -1,5 +1,9 @@
 import { ImageList, ImageListItem } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+
+
+// const ref = useRef({});
+
 
 const itemData = [
     {
@@ -33,7 +37,28 @@ const itemData = [
    
   ];
 
-const gallery = () => {
+  
+  function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
+  
+
+const Gallery = () => {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
   return (
     <>
 
@@ -42,9 +67,10 @@ const gallery = () => {
         Gallery
         </h1>
     </div>
-    <div className="gallery">
+    <div className="gallery" >
       
-        <ImageList sx={{ width: "80%", height: 410 }} cols={4} rowHeight={164} >
+      {(windowSize.innerWidth>650)? (
+        <ImageList sx={{ width: "80%", height: 410 }} cols={4} rowHeight={164}  >
             {itemData.map((item) => (
             <ImageListItem key={item.img} sx={{marginBottom:1}}>
             <img
@@ -56,10 +82,26 @@ const gallery = () => {
             </ImageListItem>
          ))}
         </ImageList>
+      ): 
+      <ImageList sx={{ width: "95%", height: "auto" ,overflow:"hidden"}} cols={1} rowHeight={300}  >
+            {itemData.map((item) => (
+            <ImageListItem key={item.img} sx={{marginTop:1}}>
+            <img 
+            className='list_image'
+                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+            />
+            </ImageListItem>
+         ))}
+        </ImageList>
+            }
+
           
     </div>
     </>
  )
 }
 
-export default gallery
+export default Gallery

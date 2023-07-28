@@ -762,3 +762,9 @@ background-size: cover;
   color: green;
   text-decoration: underline;
 }
+
+.list_image{
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
