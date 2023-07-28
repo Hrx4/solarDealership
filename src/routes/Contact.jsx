@@ -16,9 +16,35 @@ const Contact= () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Handle form submission here (e.g., send the data to the server)
+
+    try {
+      const res = await fetch("http://localhost:5000/contacts/", {
+        method: "POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phoneNumber: formData.phoneNumber,
+          message: formData.message
+        }),
+      });
+      // let resJson = await res.json();
+      if (res.status === 200) {
+        console.log("fine");
+      } else {
+        console.log("Some error occured");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+
     console.log('Form submitted:', formData);
   };
 

@@ -18,9 +18,39 @@ const ApplyNowForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     // Handle form submission here (e.g., send the data to the server)
+
+    try {
+      const res = await fetch("http://localhost:5000/apply/", {
+        method: "POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phoneNumber: formData.phoneNumber,
+          dealership: formData.dealership,
+          priceRange: formData.priceRange,
+          state: formData.state,
+          city: formData.city
+        }),
+      });
+      // let resJson = await res.json();
+      if (res.status === 200) {
+        console.log("fine");
+      } else {
+        console.log("Some error occured");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+
+
     console.log('Form submitted:', formData);
   };
 
