@@ -1,8 +1,7 @@
 import { ImageList, ImageListItem } from '@mui/material'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
-// const ref = useRef({});
 
 
 const itemData = [
