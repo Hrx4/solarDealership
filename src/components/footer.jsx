@@ -88,8 +88,8 @@ const footer = () => {
                     <h3>
                         Downloads
                     </h3>
-                    +91 9735218132  <br />
-                    info@solardealerships.co.in  <br />
+                    +91 9735218132 <br />
+                    info@solardealerships.co.in <br />
                     TATA POWER SOLAR LTD. Backbay Rec Station, 148, Lt. Gen. J.Bhonsle Marg Nariman Point, Mumbai - 400021
                 </div>
             </div>
