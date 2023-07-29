@@ -1,6 +1,6 @@
+const { json } = require('body-parser');
 const Contact = require('../models/contactModel')
 const asyncHandler = require('express-async-handler');
-// const contactModel = require('../models/contactModel');
 const { v4: uuidv4 } = require('uuid');
 
 
@@ -13,14 +13,15 @@ const createContact = asyncHandler(async(req , res) => {
     const contact = await Contact.create({
         name, email, phoneNumber,message, user_id : uuidv4()
     })
-    res.status(200).json(contact);
+    res.send.status(200).json(contact);
 
 })
 
 
 const getContact = asyncHandler(async(req , res) => {
     const contacts = await Contact.find()
-    res.status(200).json(contacts);
+    console.log(contacts)
+    res.json(contacts);
 })
 
 

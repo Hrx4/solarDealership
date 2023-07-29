@@ -20,5 +20,19 @@ const getApply = asyncHandler(async(req , res) => {
     res.status(200).json(applies);
 })
 
+const deleteApply = asyncHandler(async(req , res) => {
+    const apply = await applyModels.findById(req.params.id);
+    console.log(req.params.id)
+    if(!apply){
+        res.status(404);
+        throw new Error("Contact not found")
+    }
 
-module.exports = {createApply , getApply}
+    await applyModels.findOneAndDelete(
+        req.params.id
+    )
+    res.status(200).json(apply);
+})
+
+
+module.exports = {createApply , getApply , deleteApply}

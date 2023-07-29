@@ -18,6 +18,7 @@ const Contact= () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    
     // Handle form submission here (e.g., send the data to the server)
 
     try {
@@ -35,6 +36,7 @@ const Contact= () => {
         }),
       });
       // let resJson = await res.json();
+      console.log(res);
       if (res.status === 200) {
         console.log("fine");
       } else {
@@ -43,8 +45,7 @@ const Contact= () => {
     } catch (err) {
       console.log(err);
     }
-
-
+    
     console.log('Form submitted:', formData);
   };
 

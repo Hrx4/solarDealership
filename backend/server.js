@@ -8,19 +8,11 @@ const dotenv = require('dotenv');
 const app = express();
 const port = 5000; 
 app.use(cors())
-// app.use(bodyParser.urlencoded())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 dotenv.config()
-// Connect to MongoDB using Mongoose
-//  async () =>  try{
-//     const conn = await mongoose.connect(process.env.MONGO_URI );
-//         console.log(`Mongo Connected ${conn.connection.host}`.cyan.underline.bold);
-//   })
-//   catch((err) => {
-//     console.error('Error connecting to MongoDB:', err);
-//   })}
+
 mongoose.set('strictQuery', true);
 
 const connectDB = async() => {
@@ -43,7 +35,8 @@ app.get('/', (req, res) => {
 app.use('/contacts' , require('./routes/contacsRoute'));
 app.use('/getcontacts' , require('./routes/getContactsRoute'))
 app.use('/apply' , require('./routes/apply'))
-app.use('/getapply' , require('./routes/getApply'))
+app.use('/getapply' , require('./routes/getApply'));
+app.use('/login' , require('./routes/login'))
 
 
 

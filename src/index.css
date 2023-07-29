@@ -776,3 +776,117 @@ background-size: cover;
   width: 100%;
   margin: 10px;
 }
+.admin{
+  height: auto;
+  margin: 47px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.contactList{
+  height: auto;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactCard{
+  height: auto;
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid;
+  background-color: bisque;
+  font-weight:bold;
+  text-decoration: solid;
+}
+.name , .email , .phonenumber , .dealership , .state , .city , .priceRange{
+  margin: 5px;
+}
+/* .contactdetails{
+  display: flex;
+} */
+
+
+
+
+/* src/Login.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 30px;
+}
+
+.login-form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0056b3;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+@media screen and (min-width: 650px) {
+  .contactList{
+    width: 30%;
+  }
+}
+
+.adminHeader{
+  height: auto;
+  background-color: green;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.adminHeader>h1{
+  color: white;
+}
