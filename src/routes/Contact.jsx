@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import backend from '../backendLink';
 
 const Contact= () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Contact= () => {
     // Handle form submission here (e.g., send the data to the server)
 
     try {
-      const res = await fetch("http://localhost:5000/contacts/", {
+      const res = await fetch(`${backend}/contacts/`, {
         method: "POST",
         headers: {
           Accept: 'application/json',

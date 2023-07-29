@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
+import backend from '../backendLink';
 
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
     console.log('Password:', password);
 
     try {
-        const response = await fetch('http://localhost:5000/login', {
+        const response = await fetch(`${backend}/login`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

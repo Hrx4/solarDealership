@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import React, {  useEffect, useState } from 'react'
+import backend from '../backendLink';
 
 
 const Admin = () => {
@@ -13,7 +14,7 @@ const Admin = () => {
    const handleContact = async() => {
     setSelected("contact")
     try {
-        const response = await fetch("http://localhost:5000/getcontacts/", {
+        const response = await fetch(`${backend}/getcontacts/`, {
           method: "GET",
           headers: {
             Accept: 'application/json',
@@ -37,7 +38,7 @@ const Admin = () => {
       const key = JSON.parse(id)
 
       try {
-        const response = await fetch(`http://localhost:5000/getcontacts/${key}`, {
+        const response = await fetch(`${backend}/getcontacts/${key}`, {
           method: "DELETE",
           headers: {
             Accept: 'application/json',
@@ -59,7 +60,7 @@ const Admin = () => {
     const handleApply = async() => {
       setSelected("apply")
       try {
-          const response = await fetch("http://localhost:5000/getapply/", {
+          const response = await fetch(`${backend}/getapply/`, {
             method: "GET",
             headers: {
               Accept: 'application/json',
@@ -87,7 +88,7 @@ const Admin = () => {
         const key = JSON.parse(id)
   
         try {
-          const response = await fetch(`http://localhost:5000/getapply/${key}`, {
+          const response = await fetch(`${backend}/getapply/${key}`, {
             method: "DELETE",
             headers: {
               Accept: 'application/json',

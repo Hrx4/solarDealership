@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import backend from '../backendLink';
 const ApplyNowForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -23,7 +24,7 @@ const ApplyNowForm = () => {
     // Handle form submission here (e.g., send the data to the server)
 
     try {
-      const res = await fetch("http://localhost:5000/apply/", {
+      const res = await fetch(`${backend}/apply/`, {
         method: "POST",
         headers: {
           Accept: 'application/json',

@@ -6,7 +6,6 @@ const dotenv = require('dotenv');
 
 
 const app = express();
-const port = 5000; 
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -41,6 +40,6 @@ app.use('/login' , require('./routes/login'))
 
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(process.env.BACKEND_PORT, () => {
+  console.log(`Server is running `);
 });
