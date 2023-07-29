@@ -23,6 +23,7 @@ const Navbar = () => {
         <li><Link to={"/gallery"}>Gallery</Link></li>
         <li><Link to={"/solardealership"}>Solar Dealership</Link></li>
         <li><Link to={"/contactus"}>Contact Us</Link></li>
+        <li><Link to={"/admin"}>Admin</Link></li>
         <li><Link to={"/applynow"}><Button variant='contained' color='success'>Apply Now</Button></Link></li>
         <li className='cross'><CloseIcon  onClick={toggleNav} sx={{cursor:"pointer" , color:"black"}}/></li>
       </ul>

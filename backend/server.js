@@ -40,6 +40,6 @@ app.use('/login' , require('./routes/login'))
 
 
 // Start the server
-app.listen(process.env.BACKEND_PORT, () => {
+app.listen(8000, () => {
   console.log(`Server is running `);
 });
