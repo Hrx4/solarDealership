@@ -13,7 +13,7 @@ const brief = () => {
                     <br /> Get in touch today to find out how we can help you.
                 </div>
                 <div className="brief-image">
-
+                    <img src="https://solardealership.co.in/wp-content/uploads/2023/07/Solar-Energy-Animation.gif" alt="" />
                 </div>
             </div>
         </div>

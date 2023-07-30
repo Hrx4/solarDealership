@@ -17,7 +17,7 @@ const fact = () => {
                 </Button>
             </div>
             <div className="fact-pic">
-
+            <img src="https://solardealership.co.in/wp-content/uploads/2023/07/bulb.png" alt="" />
             </div>
         </div>
         <div className="lower-fact">

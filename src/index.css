@@ -23,29 +23,38 @@ height: 60vh;
 }
 
 .fact{
-  height: 60vh;
-  width: 100%;
+  height: auto;
+  margin: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .upper-fact{
-  height: 80%;
+  height: auto;
   display: flex;
   justify-content: center;
+  margin: 20px;
+  margin-bottom: 40px;
+
 }
 .lower-fact{
   height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px
 }
 .fact-content{
   width: 35%;
   height: auto;
 }
 .fact-pic{
-  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/bulb.png");
-  height: 100%;
+  height: auto;
   width: 35%;
-  background-size: cover;
+}
+.fact-pic>img{
+  height: 400px;
+  width: 500px;
+  /* object-fit: cover; */
 }
 h1{
   color: green;
@@ -229,10 +238,14 @@ h3{
   margin: 20px;
 }
 .brief-image{
-  background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/Solar-Energy-Animation.gif");
-  background-size: cover;
   width: 50%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.brief-image>img{
+  height: 450px;
+  width: 500px;
 }
 .brief-part{
   width: 80%;
@@ -517,7 +530,12 @@ select{
     .fact-pic{
       width: 100%;
       height: 400px;
+      margin-top: 30px;
       
+    }
+    .fact-pic>img{
+      width: 450px;
+      height: 300px;
     }
     .lower-fact{
       display: block;
@@ -654,16 +672,16 @@ background-size: cover;
   background-color: white;
   color: black;
   padding: 10px;
-  height: 50px;
+  height: 70px;
 }
 .logo{
-  height: 40px;
-  width: 50px;
+  height: 100%;
+  width: 120px;
 }
 
-.logo img {
-  height: 40px;
-  width: 100px;
+.logo >a>img {
+  height: 70px;
+  width: 120px;
 }
 
 .nav-links {
@@ -672,12 +690,14 @@ background-size: cover;
 }
 
 .nav-links li {
+  margin: auto;
   padding: 0 15px;
 }
 
 .nav-links a {
   color: black;
   text-decoration: none;
+  font-weight:bold;
 }
 
 .burger {
@@ -737,6 +757,7 @@ background-size: cover;
 .nav-links li :hover{
   color: green;
   text-decoration: underline;
+  transition: 0.2s;
 }
 
 .list_image{
