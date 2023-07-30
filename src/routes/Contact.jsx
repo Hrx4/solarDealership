@@ -38,7 +38,6 @@ const Contact= () => {
           message: formData.message
         }),
       });
-      let resJson = await res.json();
       console.log(res);
       if (res.status === 200) {
         console.log("fine");
