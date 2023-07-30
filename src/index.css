@@ -534,7 +534,7 @@ select{
       
     }
     .fact-pic>img{
-      width: 450px;
+      width: 400px;
       height: 300px;
     }
     .lower-fact{
@@ -594,6 +594,9 @@ select{
 -o-background-size: cover;
 background-size: cover;
       
+    }
+    .brief-image>img{
+      width: 400px;
     }
     .testimonials{
       height: auto;
