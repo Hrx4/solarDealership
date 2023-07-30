@@ -708,6 +708,7 @@ background-size: cover;
 
   .nav-links.active {
     display: flex;
+    padding: 0;
   }
 
   .nav-links li {
