@@ -43,7 +43,7 @@ const Admin = () => {
           },
         });
 
-        let resJson = await response.json();
+        await response.json();
 
         setContactList( [...contactList.filter(item => item._id !== id)]);
         window.location.reload(handleContact());
@@ -90,7 +90,7 @@ const Admin = () => {
             },
           });
   
-          let resJson = await response.json();
+          await response.json();
   
           setApplyList( [...applyList.filter(item => item._id !== id)]);
           window.location.reload(handleApply());
