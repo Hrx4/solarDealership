@@ -38,7 +38,6 @@ const Contact= () => {
           message: formData.message
         }),
       });
-      console.log(res);
       if (res.status === 200) {
         console.log("fine");
       } else {
@@ -48,7 +47,6 @@ const Contact= () => {
       console.log(err);
     }
     
-    console.log('Form submitted:', formData);
     toast.success('Form submitted', {
       position: toast.POSITION.TOP_CENTER
   });

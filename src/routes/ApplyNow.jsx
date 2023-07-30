@@ -54,7 +54,6 @@ const ApplyNowForm = () => {
       position: toast.POSITION.TOP_CENTER
   });
 
-    console.log('Form submitted:', formData);
   };
 
   return (

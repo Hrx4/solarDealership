@@ -15,10 +15,7 @@ const Login = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    // Here, you can implement the logic to handle login and authentication
-    // For this example, we'll just print the username and password to the console
-    console.log('Username:', username);
-    console.log('Password:', password);
+    
 
     try {
         const response = await fetch(`${backend}/login`, {
@@ -34,7 +31,6 @@ const Login = () => {
         });
 
         let resJson = await response.json();
-        console.log(resJson.token);
         logIn({
             token: resJson.token,
             expiresIn: 3600,

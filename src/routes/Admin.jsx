@@ -22,19 +22,16 @@ const Admin = () => {
           },
         });
         let resJson = await response.json();
-        console.log(resJson);
         setContactList(resJson);
 
       } catch (err) {
         console.log(err);
       }
-      console.log(contactList);
 
     }
 
 
     const handleDelete = async(id) =>{
-      console.log(id);
       const key = JSON.parse(id)
 
       try {
@@ -47,7 +44,6 @@ const Admin = () => {
         });
 
         let resJson = await response.json();
-        console.log(resJson);
 
         setContactList( [...contactList.filter(item => item._id !== id)]);
         window.location.reload(handleContact());
@@ -69,7 +65,6 @@ const Admin = () => {
           });
   
           let resJson = await response.json();
-          console.log(resJson);
   
   
           if (response.status === 200) {
@@ -84,7 +79,6 @@ const Admin = () => {
 
 
       const handleDeleteApply = async(id) =>{
-        console.log(id);
         const key = JSON.parse(id)
   
         try {
@@ -97,7 +91,6 @@ const Admin = () => {
           });
   
           let resJson = await response.json();
-          console.log(resJson);
   
           setApplyList( [...applyList.filter(item => item._id !== id)]);
           window.location.reload(handleApply());
