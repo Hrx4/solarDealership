@@ -31,12 +31,15 @@ const Login = () => {
         });
 
         let resJson = await response.json();
-        logIn({
+        if(resJson.token){
+          logIn({
             token: resJson.token,
             expiresIn: 3600,
             tokenType: "Bearer",
             authState: {useName: username}
         })
+        }
+        console.log(resJson);
 
         if(resJson.token)     navigate('/admin')
 

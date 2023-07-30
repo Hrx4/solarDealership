@@ -16,7 +16,7 @@ const login = asyncHandler(async(req , res) => {
 {        userName:userName, password:password
 }    , process.env.JWT_SECRET)
 
-    res.json({message: "Hi , welcome admin" ,token: jsonToken});
+     res.json({message: "Hi , welcome admin" ,token: jsonToken}).cookie("token" , jsonToken);
 
 })
 

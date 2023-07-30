@@ -11,10 +11,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 dotenv.config()
-// {
-//   origin: ['http://localhost:3000' || "https://cool-malasada-4e09bb.netlify.app/"],
-//   methods: ["POST"]
-// }
 
 mongoose.set('strictQuery', true);
 
@@ -41,9 +37,7 @@ app.use('/apply' , require('./routes/apply'))
 app.use('/getapply' , require('./routes/getApply'));
 app.use('/login' , require('./routes/login'))
 
-
-
 // Start the server
-app.listen(8000, () => {
+app.listen(5000, () => {
   console.log(`Server is running `);
 });
