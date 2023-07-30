@@ -6,14 +6,15 @@ const dotenv = require('dotenv');
 
 
 const app = express();
-app.use(cors({
-  origin: ['http://localhost:3000' || "https://cool-malasada-4e09bb.netlify.app/"],
-  methods: ["POST"]
-}))
+app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 dotenv.config()
+// {
+//   origin: ['http://localhost:3000' || "https://cool-malasada-4e09bb.netlify.app/"],
+//   methods: ["POST"]
+// }
 
 mongoose.set('strictQuery', true);
 

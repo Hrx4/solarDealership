@@ -28,8 +28,6 @@ const Contact= () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          'accept': '*/*',
-            'user-agent':'*'
         },
         body: JSON.stringify({
           name: formData.name,
