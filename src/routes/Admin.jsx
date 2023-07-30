@@ -123,7 +123,16 @@ const Admin = () => {
         </Button>
     </div>
 
-
+{
+  ((contactList.length === 0 && selected==="contact")  || (applyList.length === 0 && selected==="apply")) ?
+  <div className='emptylist'>
+    <h1>
+    List Is Empty!!
+    </h1>
+  </div>
+  :
+  null
+}
     <div className='contactList' >
     {(contactList.length>0  && selected==="contact")? 
 
@@ -139,6 +148,9 @@ const Admin = () => {
               </div>
               <div className="phonenumber">
               {contact.phoneNumber}
+              </div>
+              <div className="message">
+              {contact.message}
               </div>
             </div>
             <Button variant='contained' color='error' size='small' onClick={() => handleDelete(JSON.stringify(contact._id))}>

@@ -775,17 +775,9 @@ background-size: cover;
   font-weight:bold;
   text-decoration: solid;
 }
-.name , .email , .phonenumber , .dealership , .state , .city , .priceRange{
+.name , .email , .phonenumber , .dealership , .state , .city , .priceRange , .message{
   margin: 5px;
 }
-/* .contactdetails{
-  display: flex;
-} */
-
-
-
-
-/* src/Login.css */
 .login-container {
   display: flex;
   justify-content: center;
@@ -857,4 +849,10 @@ button:hover {
 }
 .adminHeader>h1{
   color: white;
+}
+.emptylist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px;
 }
