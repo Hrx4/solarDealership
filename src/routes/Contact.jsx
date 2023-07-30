@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import backend from '../backendLink';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact= () => {
   const [formData, setFormData] = useState({
@@ -17,10 +19,8 @@ const Contact= () => {
     }));
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async(e) => {   
     e.preventDefault();
-    
-    // Handle form submission here (e.g., send the data to the server)
 
     try {
       const res = await fetch(`${backend}/contacts/`, {
@@ -28,6 +28,8 @@ const Contact= () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          'accept': '*/*',
+            'user-agent':'*'
         },
         body: JSON.stringify({
           name: formData.name,
@@ -36,7 +38,7 @@ const Contact= () => {
           message: formData.message
         }),
       });
-      // let resJson = await res.json();
+      let resJson = await res.json();
       console.log(res);
       if (res.status === 200) {
         console.log("fine");
@@ -48,6 +50,9 @@ const Contact= () => {
     }
     
     console.log('Form submitted:', formData);
+    toast.success('Form submitted', {
+      position: toast.POSITION.TOP_CENTER
+  });
   };
 
   return (
@@ -76,6 +81,7 @@ const Contact= () => {
           onChange={handleChange}
           required
         />
+        <ToastContainer/>
       </div>
       <div className="form-group">
         <label htmlFor="email">Email:</label>

@@ -42,11 +42,11 @@ const Login = () => {
             authState: {useName: username}
         })
 
+        if(resJson.token)     navigate('/admin')
+
       } catch (err) {
         console.log(err);
       }
-
-    navigate('/admin')
   };
 
 

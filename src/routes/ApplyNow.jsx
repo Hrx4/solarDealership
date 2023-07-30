@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import backend from '../backendLink';
+import { ToastContainer, toast } from 'react-toastify';
 const ApplyNowForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -49,8 +50,9 @@ const ApplyNowForm = () => {
     } catch (err) {
       console.log(err);
     }
-
-
+    toast.success('Form submitted', {
+      position: toast.POSITION.TOP_CENTER
+  });
 
     console.log('Form submitted:', formData);
   };
@@ -65,6 +67,7 @@ const ApplyNowForm = () => {
     </div>
 
     <form className="apply-now-form" onSubmit={handleSubmit}>
+      <ToastContainer/>
       <div className="form-group">
         <label htmlFor="fullName">Enter full name:</label>
         <input
