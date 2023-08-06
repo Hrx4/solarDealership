@@ -30,7 +30,7 @@ const Admin = () => {
         registrationPay: ''
       });
 
-      const handleChange = (e) => {
+      const handleChange = async (e) => {
         const { name, value,files } = e.target;
         console.log(e);
         if(files) {
@@ -38,6 +38,23 @@ const Admin = () => {
             ...prevFormData,
             [name]: files[0]
           }));
+          if(files[0].type === "image/jpeg" || files[0].type === "image/png"){
+            const data = new FormData();
+            data.append("file" , files[0]);
+            data.append("upload_preset" , "solardealership");
+            data.append("cloud_name" , "dkm3nxmk5")
+            await fetch("https://api.cloudinary.com/v1_1/dkm3nxmk5/image/upload" , {
+              method:"post",
+              body:data,
+            }).then((res) => res.json())
+            .then((data)=> {
+              console.log(data);
+               setImg(data.url)
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
         }
         else{
           setFormData((prevFormData) => ({
@@ -49,24 +66,6 @@ const Admin = () => {
 
       const handleSubmit = async(e) => {
         e.preventDefault();
-        if(formData.photo.type === "image/jpeg" || formData.photo.type === "image/png"){
-            const data = new FormData();
-            data.append("file" , formData.photo);
-            data.append("upload_preset" , "solardealership");
-            data.append("cloud_name" , "dkm3nxmk5")
-            await fetch("https://api.cloudinary.com/v1_1/dkm3nxmk5/image/upload" , {
-              method:"post",
-              body:data,
-            }).then((res) => res.json())
-            .then((data)=> {
-              console.log(data.url);
-              setImg(data.url)
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }
-
         
     try {
       const res = await fetch(`${backend}/customer/create`, {
@@ -210,6 +209,7 @@ const Admin = () => {
 
     useEffect(() => {
     }, [contactList])
+    
 
   return (
 <>

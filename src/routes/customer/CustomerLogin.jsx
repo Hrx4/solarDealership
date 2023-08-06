@@ -39,7 +39,7 @@ const CustomerLogin = () => {
         if(resJson.token && decodeToken.registrationNo===registrationNo){
           logIn({
             token: resJson.token,
-            expiresIn: 1,
+            expiresIn: 120,
             tokenType: "Bearer",
             authState: {registrationNo: registrationNo}
         })

@@ -34,7 +34,7 @@ const Login = () => {
         if(resJson.token){
           logIn({
             token: resJson.token,
-            expiresIn: 1,
+            expiresIn: 60,
             tokenType: "Bearer",
             authState: {useName: username}
         })
