@@ -34,7 +34,7 @@ height: 60vh;
   justify-content: center;
   margin: 20px;
   margin-bottom: 40px;
-
+  gap: 10px;
 }
 .lower-fact{
   height: 20%;
@@ -47,14 +47,15 @@ height: 60vh;
   width: 35%;
   height: auto;
 }
+
 .fact-pic{
   height: auto;
   width: 35%;
 }
 .fact-pic>img{
-  height: 400px;
-  width: 500px;
-  /* object-fit: cover; */
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 h1{
   color: green;
@@ -142,7 +143,7 @@ h1{
   margin: 5px;
 }
 .imagelist{
-  height: 90vh;
+  height: auto;
   width: 100%;
   background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/AdobeStock_519445978-scaled-1.jpeg");
   display: flex;
@@ -153,6 +154,9 @@ h1{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.list{
+  margin-top: 20px;
 }
 .list-image{
   height: 150px;
@@ -222,7 +226,7 @@ h3{
   color: aliceblue;
 }
 .brief{
-  height: 80vh;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -231,7 +235,7 @@ h3{
 }
 .brief-text{
   width: 50%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -239,13 +243,15 @@ h3{
 }
 .brief-image{
   width: 50%;
-  height: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
+  margin: 20px;
 }
 .brief-image>img{
-  height: 450px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 .brief-part{
   width: 80%;
@@ -300,8 +306,9 @@ h3{
   width: 50%;
   height: 70%;
 }
+
 .footer{
-  height: 60vh;
+  height: auto;
   width: 100%;
 background-color: #001c38;
 display: flex;
@@ -312,6 +319,10 @@ color: aliceblue;
 }
 .part1>ul>li>h1{
   color: aliceblue;
+}
+.part1>ul>li>a{
+  color: aliceblue;
+  text-decoration: none;
 }
 .upper-footer{
   width: 80%;
@@ -362,23 +373,22 @@ h4{
 }
 .about{
   height: 60vh;
-  width: 900px;
+  width: 95%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-right: 60px;
-  margin-left: 300px;
-
+  margin: 30px;
   flex-wrap: wrap;
 }
 .lower-about{
-  height: 60vh;
+  height: auto;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 20px;
+  
+  /* gap: 20px; */
   background-image: url("https://solardealership.co.in/wp-content/uploads/2023/07/blue-solar-panels-1226088001-cee91a7ba920447280aed1d081b44859.jpg");
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.5);
@@ -514,28 +524,38 @@ select{
   }
   
   @media (max-width: 650px){
+    .about-card{
+      display: none;
+      width: 100px;
+    }
+    .lower-about{
+      flex-direction: column;
+      
+    }
+    
     .fact{
       height: auto;
     }
     .fact-content{
       /* display: block; */
-      margin: 10;
+      margin: 5px;
       width: 95%;
     }
     .upper-fact{
-      display: block;
-      margin: 10px;
+      height: auto;
       width: 100%;
+      flex-direction: column;
+      margin: 0px;
     }
     .fact-pic{
       width: 100%;
-      height: 400px;
+      height: auto;
       margin-top: 30px;
       
     }
     .fact-pic>img{
-      width: 300px;
-      height: 300px;
+      width: 100%;
+      height: 100%;
     }
     .lower-fact{
       display: block;
@@ -585,9 +605,8 @@ select{
       width: 90%;
     }
     .brief-image{
-      height: 500px;
+      height: auto;
       width: 95%;
-      margin: 5px;
       margin-bottom: 10px;
       -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -596,7 +615,7 @@ background-size: cover;
       
     }
     .brief-image>img{
-      width: 400px;
+      
     }
     .testimonials{
       height: auto;
@@ -651,6 +670,7 @@ background-size: cover;
     
     .list1{
       margin: 0px;
+      padding-top: 5px;
     }
     .list{
       display: flex;
@@ -855,6 +875,15 @@ button:hover {
   background-color: #0056b3;
 }
 
+.admin-customer-form{
+
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
 @media screen and (min-width: 650px) {
   .contactList{
@@ -879,4 +908,69 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 200px;
+}
+
+/* src/App.css */
+.about-me-card {
+  display: flex;
+  border: 1px solid #ccc;
+  width: 60%;
+  height: auto;
+  margin: 20px auto ;
+  font-family: Arial, sans-serif;
+  box-shadow: 3px 3px green, -1em 0 .4em green;
+    border-radius: 10px;
+
+}
+
+.profile-picture img {
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+}
+.profile-picture , .profile-details{
+  width: 100%;
+  height: auto;
+}
+.finance-details{
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile-picture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.profile-details h2 {
+  color: green;
+  margin-bottom: 10px;
+}
+
+
+.profile-details p {
+  margin: 5px 0;
+} 
+
+@media screen and (max-width: 700px) {
+  .about-me-card {
+    display: block;
+  }
+  .profile-picture{
+    height: 250px;
+    margin: auto;
+    display: flex;
+  }
+  .profile-details{
+    margin-left: 5px;
+  }
+  .finance-details{
+    height: auto;
+    margin-left: 5px;
+  }
 }

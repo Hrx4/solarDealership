@@ -2,47 +2,54 @@
 import React, { useState } from 'react';
 import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
-import backend from '../backendLink';
+ // import { DataState } from '../../context/DataProvider';
+ import jwt_decode from "jwt-decode";
+import backend from '../../backendLink';
 
 
-const Login = () => {
-  const [username, setUsername] = useState('');
+
+const CustomerLogin = () => {
+  const [registrationNo, setRegistrationNo] = useState('');
   const [password, setPassword] = useState('');
 
-  const logIn = useSignIn()
-  const navigate = useNavigate();
+  // const {customerData , setCustomerData } = DataState()
 
+
+  const navigate = useNavigate();
+  const logIn = useSignIn()
 
   const handleSubmit = async(e) => {
-    e.preventDefault();
-    
+    e.preventDefault();    
 
     try {
-        const response = await fetch(`${backend}/login`, {
+        const response = await fetch(`${backend}/customer/login/`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
               },  
         method: "POST",
           body: JSON.stringify({
-            userName: username ,
+            registrationNo: registrationNo ,
             password: password
           }),
         });
 
         let resJson = await response.json();
-        if(resJson.token){
+         const decodeToken = await jwt_decode(resJson.token);
+        if(resJson.token && decodeToken.registrationNo===registrationNo){
           logIn({
             token: resJson.token,
             expiresIn: 1,
             tokenType: "Bearer",
-            authState: {useName: username}
+            authState: {registrationNo: registrationNo}
         })
         }
-        
+        console.log(jwt_decode(resJson.token));
+        localStorage.setItem("customerData",JSON.stringify(resJson.data))
         console.log(resJson);
+        console.log(decodeToken.registrationNo);
 
-        if(resJson.token)     navigate('/admin')
+        if(response.status===200 && decodeToken.registrationNo===registrationNo)     navigate('/profile')
 
       } catch (err) {
         console.log(err);
@@ -59,19 +66,19 @@ const Login = () => {
 <>
 <div className="adminHeader">
   <h1>
-  Hello! Admin
+  Hello! 
   </h1>
 </div>
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="registrationNo">Registration No:</label>
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="registrationNo"
+            value={registrationNo}
+            onChange={(e) => setRegistrationNo(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -90,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CustomerLogin;

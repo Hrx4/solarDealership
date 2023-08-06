@@ -3,6 +3,7 @@ import Divider from '@mui/material/Divider';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link } from 'react-router-dom';
 
 
 const footer = () => {
@@ -35,19 +36,29 @@ const footer = () => {
                             </h3>
                         </li>
                         <li>
-                        Home
+                            <Link to={"/"}>
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            About Us
+                            <Link to={"/about"}>
+                                About Us
+                            </Link>
                         </li>
                         <li>
-                            Gallery
+                            <Link to={"/gallery"}>
+                                Gallery
+                            </Link>
                         </li>
                         <li>
-                            Solar Dealership
+                            <Link to={"/solardealership"}>
+                                Solar Dealership
+                            </Link>
                         </li>
                         <li>
-                            Contact Us
+                            <Link to={"/contactus"}>
+                                Contact Us
+                            </Link>
                         </li>
                     </ul>
                 </div>

@@ -19,7 +19,7 @@ At our company, we believe that renewable energy is the future, and we are commi
 Thank you for considering our company for your solar power needs. We look forward to working with you and helping you make the switch to clean, renewable energy.
         </div>
         <div className="lower-about">
-            <Card sx={{height: "250px" , width: "500px" , backgroundColor: "transparent" , border: "solid" , borderColor: "white", color:"white" , display: "flex" , flexDirection:"column" , alignItems:"center"}}>
+            <Card sx={{justifyContent:"center" ,height: "200px" , width: {sm:"100%" , xs:"90%"} , backgroundColor: "transparent" , border: "solid" , borderColor: "white", color:"white" , display: "flex", flexDirection:"column" , alignItems:"center" , margin:10}}>
                 <h1 className='about-text'>
                     Our Mission
                 </h1>
@@ -27,7 +27,9 @@ Thank you for considering our company for your solar power needs. We look forwar
                 Our mission is to provide innovative and sustainable solar power solutions to businesses and individuals, while delivering exceptional customer service and promoting a cleaner, more sustainable future for all.
                 </div>
             </Card>
-            <Card sx={{height: "250px" , width: "500px" , backgroundColor: "transparent" , border: "solid" , borderColor: "white" , color:"white", display: "flex" , flexDirection:"column" , alignItems:"center"}}>
+            <Card sx={{justifyContent:"center" , height: "200px" , width: {sm:"100%" , xs:"90%"}, backgroundColor: "transparent" , border: "solid" , borderColor: "white" , color:"white", display: "flex" , flexDirection:"column" , alignItems:"center", margin:10}}
+             className='about-card'
+            >
                 <h1 className='about-text'>
                     Our Vision
                 </h1>

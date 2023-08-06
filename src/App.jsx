@@ -11,21 +11,21 @@ import Dealership from './routes/Dealership';
 import Admin from './routes/Admin';
 import Login from './routes/Login';
 import {  AuthProvider, RequireAuth} from "react-auth-kit";
+import CustomerLogin from './routes/customer/CustomerLogin';
+import Profile from './routes/customer/profile';
 
 
 
 const App = () => {
+
+
   return (
     <>
-<AuthProvider
-  authType={"cookie"}
-  authName={'_auth'}
 
->
     <BrowserRouter>
+    
     {window.location.pathname ==='/admin' || window.location.pathname==='/login'?null: <Navbar/>}
 
-      {/* <Navbar/> */}
             <Routes>
               <Route exact path="/" element={<MainRoute/>}/>
               <Route exact path="/about" element={<AboutUs/>}/>
@@ -33,29 +33,39 @@ const App = () => {
               <Route exact path='/contactus' element={<Contact/>}/>
               <Route exact path='/applynow' element={<ApplyNowForm/>}/>
               <Route exact path='/solardealership' element={<Dealership/>}/>
+              </Routes>
+                <AuthProvider
+                authType={"cookie"}
+                authName={"_customer"}
+                >
+                  <Routes>
+                  <Route exact path = '/customerlogin' element={<CustomerLogin/>} />
+                    <Route exact path = '/profile'element={<RequireAuth loginPath='/customerlogin'>
+                      <Profile />
+                    </RequireAuth>}/>
+                    
+                  </Routes>
+                </AuthProvider>
+
+
+
+                <AuthProvider
+  authType={"cookie"}
+  authName={'_auth' }
+>
+
+                <Routes>
               <Route exact path="/admin" element={<RequireAuth loginPath='/login'>
                 <Admin/>
               </RequireAuth>}/>
+              
               <Route exact path="/login" element={<Login/>}/>
 
             </Routes>
+            </AuthProvider>
         <Footer/>
      </BrowserRouter>
-</AuthProvider>
 
-    {/* <Navbar/>
-      <Carousel >
-        {
-        items.map( (item, i) => <Item key={i} item={item} /> )
-        }
-      </Carousel>
-      <Fact/>
-      <Cards/>
-      <ImageList/>
-      <Brief/>
-      <Testimonials/>
-      <Choose/>
-      <Footer/> */}
     </>
   )
 }
