@@ -815,9 +815,10 @@ background-size: cover;
   gap: 10px;
   border-radius: 10px;
   border: 1px solid;
-  background-color: bisque;
   font-weight:bold;
   text-decoration: solid;
+  box-shadow: 3px 3px green, -1em 0 .4em green;
+
 }
 .name , .email , .phonenumber , .dealership , .state , .city , .priceRange , .message{
   margin: 5px;
