@@ -35,4 +35,32 @@ const deleteApply = asyncHandler(async(req , res) => {
 })
 
 
-module.exports = {createApply , getApply , deleteApply}
+const updateApply = asyncHandler(async(req , res) => {
+
+    const {fullName , email , phoneNumber , dealership , priceRange , state , city} = req.body
+
+    const apply = await applyModels.findById(req.params.id);
+    if(!apply){
+        res.status(404);
+        throw new Error("Contact not found")
+    }
+
+    const updatedApply = await applyModels.findByIdAndUpdate(
+        req.params.id,
+        {
+            fullName: fullName,
+        phoneNumber: phoneNumber,
+        email: email,
+        dealership: dealership,
+        priceRange: priceRange,
+        state: state,
+        city: city,
+        }
+    )
+
+    res.status(201).json(apply);
+})
+
+
+
+module.exports = {createApply , getApply , deleteApply , updateApply}

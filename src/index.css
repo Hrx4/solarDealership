@@ -890,6 +890,8 @@ button:hover {
   .contactList{
     width: 30%;
   }
+
+  
 }
 
 .adminHeader{
@@ -974,4 +976,30 @@ button:hover {
     height: auto;
     margin-left: 5px;
   }
+  .admin{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+table, th, td {
+  width: auto;
+  border:1px solid black;
+}
+
+table{
+  width: 100%;
+}
+.contacttable{
+  overflow-x: auto;
+  width: auto;
+  margin: 5px;
+}
+.in{
+  width: auto;
+  padding: 0px; 
+  border: none ;
+  border-radius: 0px;
+  height: 100%;
+display: block;
 }

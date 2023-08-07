@@ -39,4 +39,29 @@ const deleteConatct = asyncHandler(async(req , res) => {
     res.status(200).json(contact);
 })
 
-module.exports = {createContact , getContact , deleteConatct}
+
+const updateContact = asyncHandler(async(req , res) => {
+
+    const {name , email , phoneNumber , message} = req.body
+
+    const contact = await Contact.findById(req.params.id);
+    if(!contact){
+        res.status(404);
+        throw new Error("Contact not found")
+    }
+
+    const updatedContact = await Contact.findByIdAndUpdate(
+        req.params.id,
+        {
+            name:name,
+            email:email,
+            phoneNumber:phoneNumber ,
+            message:message,
+        }
+    )
+
+    res.status(201).json(contact);
+})
+
+
+module.exports = {createContact , getContact , deleteConatct , updateContact}
