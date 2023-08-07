@@ -1,7 +1,7 @@
 import { Box, Button, Modal } from '@mui/material'
 import React, {  useEffect, useState } from 'react'
 import backend from '../backendLink';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Admin = () => {
@@ -494,6 +494,7 @@ const updateCustomer = async (e) => {
   (( selected==="customer")) ?
 
   <div className="admin-customer-form">
+          <ToastContainer/>
       <form className="customer-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Enter name:</label>
