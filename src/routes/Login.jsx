@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 import backend from '../backendLink';
+import { CircularProgress } from '@mui/material';
 
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading , setLoading] = useState(false)
 
   const logIn = useSignIn()
   const navigate = useNavigate();
@@ -15,7 +17,8 @@ const Login = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    
+    setLoading(true)
+
 
     try {
         const response = await fetch(`${backend}/login`, {
@@ -47,6 +50,7 @@ const Login = () => {
       } catch (err) {
         console.log(err);
       }
+      setLoading(false)
   };
 
 
@@ -61,6 +65,10 @@ const Login = () => {
   <h1>
   Hello! Admin
   </h1>
+  {loading ? <div className="loader"> 
+  Please Wait......
+  <CircularProgress  />
+  </div> : null}
 </div>
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
@@ -83,6 +91,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        
         <button type="submit">Login</button>
       </form>
     </div>

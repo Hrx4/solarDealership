@@ -1,4 +1,4 @@
-import { Box, Button, Modal } from '@mui/material'
+import { Box, Button, CircularProgress, Modal } from '@mui/material'
 import React, {  useEffect, useState } from 'react'
 import backend from '../backendLink';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,7 +14,7 @@ const Admin = () => {
     const [img, setImg] = useState("");
     const [updateContactId, setUpdateContactId] = useState("");
 
-
+    const [loading , setLoading] = useState(false)
 
     const [open, setOpen] = useState(false);
     const [applyOpen, setApplyOpen] = useState(false);
@@ -93,6 +93,7 @@ const Admin = () => {
 
     const handleCustomerList = async() => {
       setSelected("customerList")
+      setLoading(true)
       try {
           const response = await fetch(`${backend}/customer/`, {
             method: "GET",
@@ -113,6 +114,8 @@ const Admin = () => {
         } catch (err) {
           console.log(err);
         }
+        setLoading(false)
+
       }
 
   
@@ -333,6 +336,8 @@ const updateCustomer = async (e) => {
 
    const handleContact = async() => {
     setSelected("contact")
+    setLoading(true)
+
     try {
         const response = await fetch(`${backend}/getcontacts/`, {
           method: "GET",
@@ -347,6 +352,7 @@ const updateCustomer = async (e) => {
       } catch (err) {
         console.log(err);
       }
+      setLoading(false)
 
     }
 
@@ -375,6 +381,8 @@ const updateCustomer = async (e) => {
 
     const handleApply = async() => {
       setSelected("apply")
+      setLoading(true)
+
       try {
           const response = await fetch(`${backend}/getapply/`, {
             method: "GET",
@@ -395,6 +403,8 @@ const updateCustomer = async (e) => {
         } catch (err) {
           console.log(err);
         }
+        setLoading(false)
+
       }
 
 
@@ -490,6 +500,10 @@ const updateCustomer = async (e) => {
   :
   null
 }
+{loading ? <div className="loader"> 
+  Please Wait......
+  <CircularProgress/>
+  </div> : null}
 {
   (( selected==="customer")) ?
 

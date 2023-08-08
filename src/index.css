@@ -466,6 +466,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  
 }
 
 button:hover {
@@ -1002,4 +1003,16 @@ table{
   border-radius: 0px;
   height: 100%;
 display: block;
+}
+.loader{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.70);  top: 0;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  flex-direction: column;
 }

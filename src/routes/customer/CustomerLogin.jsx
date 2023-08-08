@@ -1,16 +1,16 @@
-// src/Login.js
 import React, { useState } from 'react';
 import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
- // import { DataState } from '../../context/DataProvider';
  import jwt_decode from "jwt-decode";
 import backend from '../../backendLink';
+import { CircularProgress } from '@mui/material';
 
 
 
 const CustomerLogin = () => {
   const [registrationNo, setRegistrationNo] = useState('');
   const [password, setPassword] = useState('');
+  const [loading , setLoading] = useState(false);
 
   // const {customerData , setCustomerData } = DataState()
 
@@ -19,7 +19,8 @@ const CustomerLogin = () => {
   const logIn = useSignIn()
 
   const handleSubmit = async(e) => {
-    e.preventDefault();    
+    e.preventDefault();   
+    setLoading(true) 
 
     try {
         const response = await fetch(`${backend}/customer/login/`, {
@@ -54,6 +55,7 @@ const CustomerLogin = () => {
       } catch (err) {
         console.log(err);
       }
+      setLoading(false)
   };
 
 
@@ -68,6 +70,10 @@ const CustomerLogin = () => {
   <h1>
   Hello! 
   </h1>
+  {loading ? <div className="loader"> 
+  Please Wait......
+  <CircularProgress/>
+  </div> : null}
 </div>
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
