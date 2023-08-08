@@ -66,7 +66,7 @@ const Login = () => {
   Hello! Admin
   </h1>
   {loading ? <div className="loader"> 
-  Please Wait......
+  Please Wait Your Data is Loading......
   <CircularProgress  />
   </div> : null}
 </div>

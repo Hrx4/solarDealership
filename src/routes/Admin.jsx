@@ -501,7 +501,7 @@ const updateCustomer = async (e) => {
   null
 }
 {loading ? <div className="loader"> 
-  Please Wait......
+  Please Wait Your Data Is Loading......
   <CircularProgress/>
   </div> : null}
 {
