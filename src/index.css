@@ -1015,4 +1015,5 @@ display: block;
   backdrop-filter: blur(5px);
   z-index: 100;
   flex-direction: column;
+  font-weight: bold;
 }
