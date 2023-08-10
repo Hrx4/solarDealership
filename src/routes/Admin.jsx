@@ -187,6 +187,7 @@ const updateContact = async (e) => {
     });
 
     const resJson = await response.json();
+    console.log(resJson);
       if (response.status === 201) {
         console.log("fine");
       } else {
@@ -221,6 +222,7 @@ const updateApply = async (e) => {
     });
 
     const resJson = await response.json();
+    console.log(resJson);
       if (response.status === 201) {
         console.log("fine");
       } else {
@@ -356,6 +358,8 @@ const updateCustomer = async (e) => {
         }),
       });
       const resJson = await res.json();
+      console.log(resJson);
+
       if (res.status === 200) {
         console.log("fine");
       } else {
