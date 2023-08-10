@@ -11,7 +11,9 @@ const Admin = () => {
     const [customer, setCustomer] = useState([]);
 
     const [selected, setSelected] = useState("");
-    const [img, setImg] = useState("");
+    const [img, setImg] = useState("https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png");
+    const [imgUpdate, setImgUpdate] = useState("");
+
     const [updateContactId, setUpdateContactId] = useState("");
 
     const [loading , setLoading] = useState(false)
@@ -90,7 +92,7 @@ const Admin = () => {
         address:address,
         registrationPay:registrationPay
     })
-    setImg(photo);
+    setImgUpdate(photo);
     setCustomerOpen(true)
 
   };
@@ -256,7 +258,7 @@ const updateCustomer = async (e) => {
            panNo:formData.panNo,
            accountNo:formData.accountNo,
            ifscCode:formData.ifscCode,
-           photo: img,
+           photo: imgUpdate,
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
@@ -331,6 +333,39 @@ const updateCustomer = async (e) => {
         }
         console.log(e.target);
         console.log(img);
+      };
+      const handleChange1 = async (e) => {
+        const { name, value,files } = e.target;
+        if(files) {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: files[0]
+          }));
+          if(files[0].type === "image/jpeg" || files[0].type === "image/png"){
+            const data = new FormData();
+            data.append("file" , files[0]);
+            data.append("upload_preset" , "solardealership");
+            data.append("cloud_name" , "dkm3nxmk5")
+            await fetch("https://api.cloudinary.com/v1_1/dkm3nxmk5/image/upload" , {
+              method:"post",
+              body:data,
+            }).then((res) => res.json())
+            .then((data)=> {
+               setImgUpdate(data.url)
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+        }
+        else{
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value
+          }));
+        }
+        console.log(e.target); 
+        console.log(imgUpdate);
       };
 
       const handleSubmit = async(e) => {
@@ -518,7 +553,7 @@ const updateCustomer = async (e) => {
         address: '',
         registrationPay: ''
     })
-    setImg("");
+    setImgUpdate("");
 
   }
   
@@ -1170,7 +1205,7 @@ const updateCustomer = async (e) => {
               id="name"
               name="name"
               value={formData.name}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1181,7 +1216,7 @@ const updateCustomer = async (e) => {
               id="registrationNo"
               name="registrationNo"
               value={formData.registrationNo}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1193,7 +1228,7 @@ const updateCustomer = async (e) => {
               id="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1204,7 +1239,7 @@ const updateCustomer = async (e) => {
               id="mobileNo"
               name="mobileNo"
               value={formData.mobileNo}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1215,7 +1250,7 @@ const updateCustomer = async (e) => {
               id="fatherName"
               name="fatherName"
               value={formData.fatherName}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1226,7 +1261,7 @@ const updateCustomer = async (e) => {
               id="aadharNo"
               name="aadharNo"
               value={formData.aadharNo}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1237,7 +1272,7 @@ const updateCustomer = async (e) => {
               id="panNo"
               name="panNo"
               value={formData.panNo}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1248,7 +1283,7 @@ const updateCustomer = async (e) => {
               id="accountNo"
               name="accountNo"
               value={formData.accountNo}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1259,7 +1294,7 @@ const updateCustomer = async (e) => {
               id="ifscCode"
               name="ifscCode"
               value={formData.ifscCode}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1270,7 +1305,7 @@ const updateCustomer = async (e) => {
               id="photo"
               name="photo"
               accept="image/*"
-              onChange={handleChange}
+              onChange={handleChange1}
             />
           </div>
           <div className="form-group">
@@ -1280,7 +1315,7 @@ const updateCustomer = async (e) => {
               id="districtName"
               name="districtName"
               value={formData.districtName}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1291,7 +1326,7 @@ const updateCustomer = async (e) => {
               id="landmark"
               name="landmark"
               value={formData.landmark}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1301,7 +1336,7 @@ const updateCustomer = async (e) => {
               id="address"
               name="address"
               value={formData.address}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
@@ -1312,7 +1347,7 @@ const updateCustomer = async (e) => {
               id="registrationPay"
               name="registrationPay"
               value={formData.registrationPay}
-              onChange={handleChange}
+              onChange={handleChange1}
               required
             />
           </div>
