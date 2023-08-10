@@ -71,6 +71,7 @@ const Admin = () => {
   landmark,
   address,
   registrationPay) => {
+    console.log(photo);
     setCustomerOpen(true)
     const key = id
     setUpdateContactId(key);
@@ -107,13 +108,11 @@ const Admin = () => {
     });
 
     const handleContactChange = (e) => {
-      console.log(e);
       const { name, value } = e.target;
       setContactData((prevContactData) => ({
         ...prevContactData,
         [name]: value
       }));
-      console.log(value);
     };
 
 
@@ -188,7 +187,6 @@ const updateContact = async (e) => {
     });
 
     const resJson = await response.json();
-      console.log(resJson);
       if (response.status === 201) {
         console.log("fine");
       } else {
@@ -223,7 +221,6 @@ const updateApply = async (e) => {
     });
 
     const resJson = await response.json();
-      console.log(resJson);
       if (response.status === 201) {
         console.log("fine");
       } else {
@@ -239,7 +236,6 @@ const updateApply = async (e) => {
 
 const updateCustomer = async (e) => {
   e.preventDefault();
-  console.log(img);
   try {
     const response = await fetch(`${backend}/customer/${updateContactId}`, {
       method: "PUT",
@@ -257,7 +253,7 @@ const updateCustomer = async (e) => {
            panNo:formData.panNo,
            accountNo:formData.accountNo,
            ifscCode:formData.ifscCode,
-           photo: (img) ? img : "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png" ,
+           photo: img,
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
@@ -302,7 +298,6 @@ const updateCustomer = async (e) => {
 
       const handleChange = async (e) => {
         const { name, value,files } = e.target;
-        console.log(e);
         if(files) {
           setFormData((prevFormData) => ({
             ...prevFormData,
@@ -318,7 +313,6 @@ const updateCustomer = async (e) => {
               body:data,
             }).then((res) => res.json())
             .then((data)=> {
-              console.log(data);
                setImg(data.url)
             })
             .catch((err) => {
@@ -354,7 +348,7 @@ const updateCustomer = async (e) => {
            panNo:formData.panNo,
            accountNo:formData.accountNo,
            ifscCode:formData.ifscCode,
-           photo: img,
+           photo: (img) ? img : "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png",
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
@@ -362,7 +356,6 @@ const updateCustomer = async (e) => {
         }),
       });
       const resJson = await res.json();
-      console.log(resJson);
       if (res.status === 200) {
         console.log("fine");
       } else {
@@ -374,10 +367,6 @@ const updateCustomer = async (e) => {
     toast.success('Form submitted', {
       position: toast.POSITION.TOP_CENTER
   });
-
-
-
-        console.log('Form submitted:', formData);
       };
     
 
@@ -522,6 +511,7 @@ const updateCustomer = async (e) => {
         address: '',
         registrationPay: ''
     })
+    setImg("");
 
   }
   

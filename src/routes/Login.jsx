@@ -43,7 +43,6 @@ const Login = () => {
         })
         }
         
-        console.log(resJson);
 
         if(resJson.token)     navigate('/admin')
 
