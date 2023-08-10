@@ -73,7 +73,6 @@ const Admin = () => {
   landmark,
   address,
   registrationPay) => {
-    console.log(photo);
     const key = id
     setUpdateContactId(key);
     setFormData({
@@ -331,8 +330,7 @@ const updateCustomer = async (e) => {
             [name]: value
           }));
         }
-        console.log(e.target);
-        console.log(img);
+        
       };
       const handleChange1 = async (e) => {
         const { name, value,files } = e.target;
@@ -364,8 +362,7 @@ const updateCustomer = async (e) => {
             [name]: value
           }));
         }
-        console.log(e.target); 
-        console.log(imgUpdate);
+        
       };
 
       const handleSubmit = async(e) => {

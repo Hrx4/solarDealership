@@ -43,9 +43,7 @@ const CustomerLogin = () => {
             authState: {registrationNo: registrationNo}
         })
         }
-        console.log(jwt_decode(resJson.token));
         localStorage.setItem("customerData",JSON.stringify(resJson.data))
-        console.log(resJson);
         console.log(decodeToken.registrationNo);
 
         if(response.status===200 && decodeToken.registrationNo===registrationNo)     navigate('/profile')
