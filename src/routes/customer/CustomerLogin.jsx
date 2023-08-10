@@ -9,7 +9,6 @@ import { CircularProgress } from '@mui/material';
 
 const CustomerLogin = () => {
   const [registrationNo, setRegistrationNo] = useState('');
-  const [password, setPassword] = useState('');
   const [loading , setLoading] = useState(false);
 
   // const {customerData , setCustomerData } = DataState()
@@ -30,8 +29,7 @@ const CustomerLogin = () => {
               },  
         method: "POST",
           body: JSON.stringify({
-            registrationNo: registrationNo ,
-            password: password
+            registrationNo: registrationNo
           }),
         });
 
@@ -85,15 +83,6 @@ const CustomerLogin = () => {
             id="registrationNo"
             value={registrationNo}
             onChange={(e) => setRegistrationNo(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button type="submit">Login</button>

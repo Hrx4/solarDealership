@@ -22,25 +22,75 @@ const Admin = () => {
 
 
 
-  const ContactModalOpen = (id) => {
+  const ContactModalOpen = (id,name , email , phoneNumber , message) => {
     setOpen(true)
-    const key = JSON.parse(id)
+    const key = id
     setUpdateContactId(key);
+    setContactData({
+      name: name ,
+      email: email ,
+      phoneNumber: phoneNumber ,
+      message: message
+    })
 
   };
 
-  const ApplytModalOpen = (id) => {
+  const ApplytModalOpen = (id , fullName,
+  phoneNumber,
+  email,
+  dealership,
+  priceRange,
+  state,
+  city) => {
     setApplyOpen(true)
-    const key = JSON.parse(id)
+    const key = id
     setUpdateContactId(key);
+    setApplyData({
+      fullName:fullName,
+      phoneNumber:phoneNumber,
+      email: email,
+      dealership: dealership,
+      priceRange: priceRange,
+      state: state,
+      city: city
+    })
 
   };
 
-  const CustomerModalOpen = (id) => {
+  const CustomerModalOpen = (id , name,
+  registrationNo,
+  email,
+  mobileNo,
+  fatherName,
+  aadharNo,
+  panNo,
+  accountNo,
+  ifscCode,
+  photo,
+  districtName,
+  landmark,
+  address,
+  registrationPay) => {
     setCustomerOpen(true)
-    const key = JSON.parse(id)
+    const key = id
     setUpdateContactId(key);
-
+    setFormData({
+      name: name,
+        registrationNo: registrationNo,
+        email: email,
+        mobileNo: mobileNo,
+        fatherName: fatherName,
+        aadharNo: aadharNo,
+        panNo: panNo,
+        accountNo: accountNo,
+        ifscCode: ifscCode,
+        districtName: districtName,
+        photo:photo,
+        landmark: landmark,
+        address:address,
+        registrationPay:registrationPay
+    })
+    setImg(photo);
   };
 
   const handleClose = () => setOpen(false);
@@ -189,6 +239,7 @@ const updateApply = async (e) => {
 
 const updateCustomer = async (e) => {
   e.preventDefault();
+  console.log(img);
   try {
     const response = await fetch(`${backend}/customer/${updateContactId}`, {
       method: "PUT",
@@ -199,7 +250,6 @@ const updateCustomer = async (e) => {
       body: JSON.stringify({
         name : formData.name,
            registrationNo :formData.registrationNo,
-           password :formData.password,
            email :formData.email,
            mobileNo :formData.mobileNo,
            so :formData.fatherName,
@@ -207,6 +257,7 @@ const updateCustomer = async (e) => {
            panNo:formData.panNo,
            accountNo:formData.accountNo,
            ifscCode:formData.ifscCode,
+           photo: (img) ? img : "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png" ,
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
@@ -235,7 +286,6 @@ const updateCustomer = async (e) => {
       const [formData, setFormData] = useState({
         name: '',
         registrationNo: '',
-        password:'',
         email: '',
         mobileNo: '',
         fatherName: '',
@@ -297,7 +347,6 @@ const updateCustomer = async (e) => {
         body: JSON.stringify({
           name : formData.name,
            registrationNo :formData.registrationNo,
-           password :formData.password,
            email :formData.email,
            mobileNo :formData.mobileNo,
            so :formData.fatherName,
@@ -457,6 +506,23 @@ const updateCustomer = async (e) => {
 
   const handelCustomer = () => {
     setSelected('customer')
+    setFormData({
+      name: '',
+        registrationNo: '',
+        email: '',
+        mobileNo: '',
+        fatherName: '',
+        aadharNo: '',
+        panNo: '',
+        accountNo: '',
+        ifscCode: '',
+        photo: '',
+        districtName: '',
+        landmark: '',
+        address: '',
+        registrationPay: ''
+    })
+
   }
   
 
@@ -506,6 +572,7 @@ const updateCustomer = async (e) => {
   </div> : null}
 {
   (( selected==="customer")) ?
+  
 
   <div className="admin-customer-form">
           <ToastContainer/>
@@ -531,18 +598,7 @@ const updateCustomer = async (e) => {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">password</label>
-            <input
-              type="text"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          </div>          
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <input
@@ -715,7 +771,13 @@ const updateCustomer = async (e) => {
               <Button variant='contained' color='error' size='small' onClick={() => handleDelete(JSON.stringify(contact._id))}>
                 Delete
               </Button>
-              <Button variant='contained' color='success' size='small' onClick={() =>ContactModalOpen(JSON.stringify(contact._id))} >
+              <Button variant='contained' color='success' size='small' onClick={() =>ContactModalOpen(
+                contact._id,
+                contact.name,
+                contact.email,
+                contact.phoneNumber,
+                contact.message
+                )} >
                   Update
                 </Button>
             </td>
@@ -843,7 +905,16 @@ const updateCustomer = async (e) => {
                 <Button variant='contained' color='error' size='small' onClick={() => handleDeleteApply(JSON.stringify(apply._id))}>
                   Delete
                 </Button>
-                <Button variant='contained' color='success' size='small' onClick={() =>ApplytModalOpen(JSON.stringify(apply._id))}>
+                <Button variant='contained' color='success' size='small' onClick={() =>ApplytModalOpen(
+                    apply._id , 
+                    apply.fullName,
+                    apply.phoneNumber,
+                    apply.email,
+                    apply.dealership,
+                    apply.priceRange,
+                    apply.state,
+                    apply.city
+                  )}>
                   Update
                 </Button>
               </td>
@@ -959,7 +1030,7 @@ const updateCustomer = async (e) => {
           type="text"
           id="city"
           name="city"
-          value={formData.city}
+          value={applyData.city}
           onChange={handleApplyChange}
           required
         />
@@ -981,7 +1052,6 @@ const updateCustomer = async (e) => {
           <tr>
             <th>name</th>
             <th>registrationNo</th>
-            <th>password</th>
             <th>email</th>
             <th>mobileNo</th>
             <th>fatherName</th>
@@ -1008,9 +1078,7 @@ const updateCustomer = async (e) => {
               <td>
               {customer.registrationNo}
               </td>
-              <td>
-            {customer.password}
-              </td>
+              
               <td>
 {customer.email}
               </td>
@@ -1048,7 +1116,23 @@ const updateCustomer = async (e) => {
                 <Button variant='contained' color='error' size='small' onClick={() => handleDeleteCustomer(JSON.stringify(customer._id))}>
                   Delete
                 </Button>
-                <Button variant='contained' color='success' size='small' onClick={() =>CustomerModalOpen(JSON.stringify(customer._id))}>
+                <Button variant='contained' color='success' size='small' onClick={() =>CustomerModalOpen(
+                  customer._id,
+                  customer.name,
+                  customer.registrationNo,
+                  customer.email,
+                  customer.mobileNo,
+                  customer.so,
+                  customer.aadharNo,
+                  customer.panNo,            
+                  customer.accountNo,
+                  customer.ifscCode, 
+                  customer.photo,            
+                  customer.distName,
+                  customer.landMark,
+                  customer.address,
+                  customer.registrationPay,
+                  )}>
                     Update
                   </Button>
               </td>
@@ -1104,17 +1188,7 @@ const updateCustomer = async (e) => {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">password</label>
-            <input
-              type="text"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <input
@@ -1190,6 +1264,16 @@ const updateCustomer = async (e) => {
               value={formData.ifscCode}
               onChange={handleChange}
               required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="photo">Photo:</label>
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              accept="image/*"
+              onChange={handleChange}
             />
           </div>
           <div className="form-group">

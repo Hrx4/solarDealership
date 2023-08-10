@@ -9,10 +9,6 @@ const customerSchema = mongoose.Schema({
         type: String,
         required: [true, "Please add the customer registration no"],
     },
-    password: {
-        type: String,
-        required: [true, "Please add the customer password"],
-    },
     email: {
         type: String,
         required: [true],
