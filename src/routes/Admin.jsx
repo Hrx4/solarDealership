@@ -72,7 +72,6 @@ const Admin = () => {
   address,
   registrationPay) => {
     console.log(photo);
-    setCustomerOpen(true)
     const key = id
     setUpdateContactId(key);
     setFormData({
@@ -92,6 +91,8 @@ const Admin = () => {
         registrationPay:registrationPay
     })
     setImg(photo);
+    setCustomerOpen(true)
+
   };
 
   const handleClose = () => setOpen(false);
@@ -328,6 +329,8 @@ const updateCustomer = async (e) => {
             [name]: value
           }));
         }
+        console.log(e.target);
+        console.log(img);
       };
 
       const handleSubmit = async(e) => {
@@ -350,7 +353,7 @@ const updateCustomer = async (e) => {
            panNo:formData.panNo,
            accountNo:formData.accountNo,
            ifscCode:formData.ifscCode,
-           photo: (img) ? img : "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png",
+           photo: img ,
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
