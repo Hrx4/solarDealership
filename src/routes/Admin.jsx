@@ -350,6 +350,8 @@ const updateCustomer = async (e) => {
             }).then((res) => res.json())
             .then((data)=> {
                setImgUpdate(data.url)
+               console.log(data.url);
+               console.log(imgUpdate);
             })
             .catch((err) => {
               console.log(err);
@@ -558,6 +560,9 @@ const updateCustomer = async (e) => {
 
     useEffect(() => {
     }, [contactList])
+    useEffect(() => {
+      setFormData({photo:imgUpdate});
+    }, [imgUpdate])
     
 
   return (

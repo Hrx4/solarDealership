@@ -618,9 +618,7 @@ select{
 background-size: cover;
       
     }
-    .brief-image>img{
-      
-    }
+    
     .testimonials{
       height: auto;
     }
@@ -1026,9 +1024,7 @@ button:hover {
     margin-left: 0px;
     margin-right: 0px;
   }
-  .upper{
-    /* justify-content: center; */
-  }
+  
   .profile-picture{
     margin-top: -110px;
   }
