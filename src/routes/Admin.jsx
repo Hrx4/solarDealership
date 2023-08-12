@@ -91,7 +91,8 @@ const Admin = () => {
         address:address,
         registrationPay:registrationPay
     })
-    setImgUpdate(photo);
+    console.log(formData.photo);
+    console.log(photo);
     setCustomerOpen(true)
 
   };
@@ -257,7 +258,7 @@ const updateCustomer = async (e) => {
            panNo:formData.panNo,
            accountNo:formData.accountNo,
            ifscCode:formData.ifscCode,
-           photo: imgUpdate,
+           photo: formData.photo,
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
@@ -335,10 +336,7 @@ const updateCustomer = async (e) => {
       const handleChange1 = async (e) => {
         const { name, value,files } = e.target;
         if(files) {
-          setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: files[0]
-          }));
+          
           if(files[0].type === "image/jpeg" || files[0].type === "image/png"){
             const data = new FormData();
             data.append("file" , files[0]);
@@ -349,9 +347,16 @@ const updateCustomer = async (e) => {
               body:data,
             }).then((res) => res.json())
             .then((data)=> {
-               setImgUpdate(data.url)
+              console.log(name);
+
+              setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: data.url
+              }));
+              //  setImgUpdate(data.url)
                console.log(data.url);
-               console.log(imgUpdate);
+              //  console.log(imgUpdate);
+
             })
             .catch((err) => {
               console.log(err);
@@ -552,7 +557,6 @@ const updateCustomer = async (e) => {
         address: '',
         registrationPay: ''
     })
-    setImgUpdate("");
 
   }
   
@@ -560,9 +564,11 @@ const updateCustomer = async (e) => {
 
     useEffect(() => {
     }, [contactList])
-    useEffect(() => {
-      setFormData({photo:imgUpdate});
-    }, [imgUpdate])
+    // useEffect(() => {
+    //   setFormData({photo:imgUpdate});
+    //   console.log(formData.photo);
+    //   console.log(imgUpdate);
+    // }, [imgUpdate])
     
 
   return (
