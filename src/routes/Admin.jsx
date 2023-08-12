@@ -12,7 +12,6 @@ const Admin = () => {
 
     const [selected, setSelected] = useState("");
     const [img, setImg] = useState("https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png");
-    const [imgUpdate, setImgUpdate] = useState("");
 
     const [updateContactId, setUpdateContactId] = useState("");
 
