@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@mui/material'
+import { Button , Divider } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import { useSignOut } from 'react-auth-kit';
 
@@ -24,38 +24,86 @@ const Profile = () => {
 
     <>
          <div className="customerbody">
-            <div className="customerheader">
-              <div className="upper">
-              <div className='customerbtn'>
-              <Button variant='contained' color='error'   onClick={()=> handleLogout()} >
-               Log Out
-             </Button>
-              </div>
-              </div>
-              <div className="profile-picture">
-                <img src={data.photo} alt="Profile" />
-            </div>
-            </div>
+            
             <div className="customermain">
-              <h2>{data.name}</h2>
-
+            
                   <div className="customercontent">
-                    <div className="leftside">
-                    <p>Registration No: {data.registrationNo}</p>
-                    <p>Email: {data.email}</p>
-                    <p>Mobile No: {data.mobileNo}</p>
-                    <p>Aadhar No: {data.aadharNo}</p>
-                    <p>PAN No: {data.panNo}</p>
-                    <p>Dist Name: {data.distName}</p>
-                    <p>Landmark: {data.landMark}</p>
-                    <p>Address: {data.address}</p>
+                    <div className="profile-picture">
+                      <img src={data.photo} alt="Profile" />
                     </div>
+
+                    <div className="leftside">
+                    <p>Name 
+                      <div>{data.name}</div>
+                    </p>
+                    <Divider/>
+                    <p>Registration No  
+                      <div>{data.registrationNo}</div>
+                    </p>
+                    <Divider/>
+                    <p>Email 
+                      <div>{data.email}</div>
+                    </p>
+                    <Divider/>
+                    <p>Mobile No 
+                      <div>{data.mobileNo}</div>
+                    </p>
+                    <Divider/>
+                    <p>Dist Name
+                      <div>{data.distName}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>LandMark 
+                      <div>{data.landMark}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>Address 
+                      <div style={{margin:"10px"}}>{data.address}</div>
+                    </p>
+                    <p>State 
+                      <div>{data.state}</div>
+                    </p>
+                    <Divider/>
+                    <p>DOB 
+                      <div>{data.dob}</div>
+                    </p>
+                    <Divider/>
+                  </div>
+
+                  <Divider orientation='vertical' flexItem/>
 
           
                     <div className="rightside">
-                    <p>account No: {data.accountNo}</p>
-                    <p>ifsc Code: {data.ifscCode}</p>
-                    <p>registration Pay: {data.registrationPay}</p>
+                    <p>Aadhar No 
+                      <div>{data.aadharNo}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>Pan No 
+                      <div>{data.panNo}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>account No 
+                      <div>{data.accountNo}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>ifsc Code
+                      <div>{data.ifscCode}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>Registration Pay 
+                      <div>{data.registrationPay}</div>
+                    </p>
+                      <div className='customerbtn'>
+                        <Button variant='contained' color='error'   onClick={()=> handleLogout()} >
+                        Log Out
+                        </Button>
+                      </div>
                     </div>
                   </div>
             </div>

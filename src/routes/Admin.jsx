@@ -71,7 +71,9 @@ const Admin = () => {
   districtName,
   landmark,
   address,
-  registrationPay) => {
+  state,
+  dob,
+  registrationPay , approved) => {
     const key = id
     setUpdateContactId(key);
     setFormData({
@@ -88,7 +90,10 @@ const Admin = () => {
         photo:photo,
         landmark: landmark,
         address:address,
-        registrationPay:registrationPay
+        state:state,
+        dob:dob,
+        registrationPay:registrationPay,
+        approved:approved
     })
     console.log(formData.photo);
     console.log(photo);
@@ -261,7 +266,10 @@ const updateCustomer = async (e) => {
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
+           state:formData.state,
+           dob:formData.dob,
            registrationPay:formData.registrationPay,
+           approved:formData.approved
       }),
     });
 
@@ -297,11 +305,17 @@ const updateCustomer = async (e) => {
         districtName: '',
         landmark: '',
         address: '',
-        registrationPay: ''
+        state:'',
+        dob:'',
+        registrationPay: '',
+        approved: ''
       });
 
       const handleChange = async (e) => {
         const { name, value,files } = e.target;
+        console.log('====================================');
+        console.log(e);
+        console.log('====================================');
         if(files) {
           setFormData((prevFormData) => ({
             ...prevFormData,
@@ -329,11 +343,17 @@ const updateCustomer = async (e) => {
             ...prevFormData,
             [name]: value
           }));
+          console.log(name , value);
+          
+          console.log(formData);
         }
         
       };
       const handleChange1 = async (e) => {
         const { name, value,files } = e.target;
+        console.log('====================================');
+        console.log(e);
+        console.log('====================================');
         if(files) {
           
           if(files[0].type === "image/jpeg" || files[0].type === "image/png"){
@@ -367,6 +387,7 @@ const updateCustomer = async (e) => {
             ...prevFormData,
             [name]: value
           }));
+          console.log(formData);
         }
         
       };
@@ -395,7 +416,10 @@ const updateCustomer = async (e) => {
            distName:formData.districtName ,
            landMark:formData.landmark,
            address:formData.address,
+           state:formData.state,
+           dob:formData.dob,
            registrationPay:formData.registrationPay,
+           approved: formData.approved
         }),
       });
       const resJson = await res.json();
@@ -554,7 +578,10 @@ const updateCustomer = async (e) => {
         districtName: '',
         landmark: '',
         address: '',
-        registrationPay: ''
+        state:'',
+        dob:'',
+        registrationPay: '',
+        approved:''
     })
 
   }
@@ -758,6 +785,21 @@ const updateCustomer = async (e) => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="state">State:</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleChange}/>
+          </div>
+          <div className="form-group">
             <label htmlFor="registrationPay">Registration pay:</label>
             <input
               type="text"
@@ -768,6 +810,15 @@ const updateCustomer = async (e) => {
               required
             />
           </div>
+
+
+          <div className="approve">
+          <label htmlFor="Approved">Approved</label>
+            <input type="radio" id="Approved" name="approved" value="approved" onChange={handleChange}/>
+            <label htmlFor="DisApproved">Dis-Approved</label>
+            <input type="radio" id="DisApproved" name="approved" value="disApproved" onChange={handleChange}/>
+          </div>
+
           <button type="submit">Submit</button>
         </form>
     </div>
@@ -1101,7 +1152,10 @@ const updateCustomer = async (e) => {
             <th>districtName</th>
             <th>landmark</th>
             <th>address</th>
+            <th>state</th>
+            <th>DOB</th>
             <th>registrationPay</th>
+            <th>Approval</th>
             <th>Buttons</th>
 
         </tr>
@@ -1149,7 +1203,16 @@ const updateCustomer = async (e) => {
         {customer.address}
               </td>
               <td>
+        {customer.state}
+              </td>
+              <td>
+        {customer.dob}
+              </td>
+              <td>
               {customer.registrationPay}
+              </td>
+              <td>
+              {customer.approved}
               </td>
               <td>
                 <Button variant='contained' color='error' size='small' onClick={() => handleDeleteCustomer(JSON.stringify(customer._id))}>
@@ -1170,7 +1233,10 @@ const updateCustomer = async (e) => {
                   customer.distName,
                   customer.landMark,
                   customer.address,
+                  customer.state,
+                  customer.dob,
                   customer.registrationPay,
+                  customer.approved
                   )}>
                     Update
                   </Button>
@@ -1348,6 +1414,21 @@ const updateCustomer = async (e) => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="state">State:</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange1}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="dob">DOB:</label>
+            <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleChange1}/>
+          </div>
+          <div className="form-group">
             <label htmlFor="registrationPay">Registration pay:</label>
             <input
               type="text"
@@ -1358,6 +1439,13 @@ const updateCustomer = async (e) => {
               required
             />
           </div>
+          <div className="approve">
+          <label htmlFor="approved">Approved</label>
+            <input type="radio" id="approved" name="approved" value="approved" onChange={handleChange1}  />
+            <label htmlFor="DisApproved">Dis-Approved</label>
+            <input type="radio" id="approved" name="approved" value="disApproved"  onChange={handleChange1}  />
+          </div>
+
           <button type="submit">Submit</button>
         </form>
 

@@ -864,6 +864,14 @@ background-size: cover;
   border-radius: 4px;
 }
 
+.approve{
+  display: flex;
+  margin-bottom: 20px;
+}
+.approve>input{
+  height: 20px;
+  width: 20%;
+}
 
 
 button:hover {
@@ -927,7 +935,7 @@ button:hover {
   border-radius: 50%;
 }
 .profile-picture , .profile-details{
-  width: 100%;
+  width: 60%;
   height: auto;
 }
 .finance-details{
@@ -974,34 +982,44 @@ button:hover {
 }
 .customermain{
   height: auto;
-  width: 60%;
+  /* width: 60%; */
   margin-left: auto;
   margin-right:auto;
 
   margin-top: 130px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  border: 2px solid;
 }
 .customercontent{
   display: flex;
   font-weight: bold;
+  width: 95%;
+  justify-content: space-evenly;
+  gap: 5px;
   
 }
 .customermain>h2{
   color: green;
 }
-.leftside{
-  margin: 10px;
+.leftside , .rightside{
+  padding: 10px;
+  width: 100%;
 }
-.rightside{
-  margin: 10px;
+
+.leftside>p , .rightside>p{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 .customerbtn{
   margin-right: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 @media screen and (max-width: 700px) {
@@ -1034,6 +1052,12 @@ button:hover {
   .customermain{
     width: 80%;
     margin-top: 100px;
+  }
+  .customercontent{
+    flex-direction: column;
+  }
+  .leftside , .rightside{
+    width: 100%;
   }
 }
 

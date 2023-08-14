@@ -4,14 +4,14 @@ const jwt = require('jsonwebtoken')
 
 
 const createCustomer = asyncHandler(async(req , res) => {
-    const {name , registrationNo , email , mobileNo , so , aadharNo, panNo, accountNo, ifscCode, photo, distName, landMark, address, registrationPay} = req.body;
+    const {name , registrationNo , email , mobileNo , so , aadharNo, panNo, accountNo, ifscCode, photo, distName, landMark, address,state , dob ,registrationPay , approved} = req.body;
     // if(!name  || !registrationNo  || !email  || !mobileNo  || !so  || !aadharNo || !panNo || !accountNo || !ifscCode || !photo || !distName || !landMark || !address || !registrationPay){
     //     res.status(400)
     //     throw new Error("All fields are mandatory")
     // }
     // if(photo===""){photo= "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"}
     const customer = await customerModel.create({
-        name , registrationNo , email , mobileNo , so , aadharNo, panNo, accountNo, ifscCode, photo, distName, landMark, address, registrationPay
+        name , registrationNo , email , mobileNo , so , aadharNo, panNo, accountNo, ifscCode, photo, distName, landMark, address,  state, dob,registrationPay , approved
     })
     res.status(200).json(customer);
 
@@ -49,7 +49,7 @@ const getCustomerList = asyncHandler(async(req , res) => {
 
 const updateCustomer = asyncHandler(async(req , res) => {
 
-    const {name , registrationNo , email , mobileNo , so , aadharNo, panNo, accountNo, ifscCode,photo,  distName, landMark, address, registrationPay} = req.body
+    const {name , registrationNo , email , mobileNo , so , aadharNo, panNo, accountNo, ifscCode,photo,  distName, landMark, address,state , dob, registrationPay , approved} = req.body
 
     const customer = await customerModel.findById(req.params.id);
     if(!customer){
@@ -73,7 +73,10 @@ const updateCustomer = asyncHandler(async(req , res) => {
            distName:distName ,
            landMark:landMark,
            address:address,
+           state:state,
+           dob:dob,
            registrationPay:registrationPay,
+           approved:approved
         }
     )
 

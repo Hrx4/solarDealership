@@ -52,7 +52,19 @@ const customerSchema = mongoose.Schema({
         type: String,
         required: [true],
     },
+    state: {
+        type: String,
+        required: [true],
+    },
+    dob: {
+        type: String,
+        required: [true],
+    },
     registrationPay: {
+        type: String,
+        required: [true],
+    },
+    approved: {
         type: String,
         required: [true],
     },
