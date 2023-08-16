@@ -842,7 +842,7 @@ background-size: cover;
   width: 100%;
 }
 
-.login-form h2 {
+.login-form >h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #0056b3;
@@ -949,10 +949,14 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: auto;
+
+}
+.profile-picture>img{
+  position: relative;
 }
 
-
-.profile-details h2 {
+.profile-details> h2 {
   color: green;
   margin-bottom: 10px;
 }
@@ -985,8 +989,7 @@ button:hover {
   /* width: 60%; */
   margin-left: auto;
   margin-right:auto;
-
-  margin-top: 130px;
+  margin-top: 40px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -995,11 +998,25 @@ button:hover {
 }
 .customercontent{
   display: flex;
+  flex-direction: column;
   font-weight: bold;
-  width: 95%;
-  justify-content: space-evenly;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   
+}
+.customercontent>h2{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
+  color: green;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 900;
+
 }
 .customermain>h2{
   color: green;
@@ -1054,6 +1071,7 @@ button:hover {
     margin-top: 100px;
   }
   .customercontent{
+    width: 95%;
     flex-direction: column;
   }
   .leftside , .rightside{

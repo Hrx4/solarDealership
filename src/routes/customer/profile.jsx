@@ -32,6 +32,17 @@ const Profile = () => {
                       <img src={data.photo} alt="Profile" />
                     </div>
 
+                    {
+                      (data.approved==="approved") ?                     
+                      <div style={{textTransform:"uppercase" , marginTop:"10px" , color:"green"}}>{data.approved}</div>:
+                      <div style={{textTransform:"uppercase" , marginTop:"10px" , color:"red" }}>{data.approved}</div>
+
+
+                    }
+
+
+                    <h2>Personal Information</h2>
+
                     <div className="leftside">
                     <p>Name 
                       <div>{data.name}</div>
@@ -45,8 +56,33 @@ const Profile = () => {
                       <div>{data.email}</div>
                     </p>
                     <Divider/>
+                    <p>DOB 
+                      <div>{data.dob}</div>
+                    </p>
+                    <Divider/>
                     <p>Mobile No 
                       <div>{data.mobileNo}</div>
+                    </p>
+                    <Divider/>
+                    <p>Aadhar No 
+                      <div>{data.aadharNo}</div>
+                    </p>
+                    <Divider/>
+
+                    <p>Pan No 
+                      <div>{data.panNo}</div>
+                    </p>
+                    
+                  </div>
+
+                  <h2>Address Information</h2>
+
+
+          
+                    <div className="rightside">
+                    <p>
+                    Address 
+                      <div style={{margin:"10px"}}>{data.address}</div>
                     </p>
                     <Divider/>
                     <p>Dist Name
@@ -59,32 +95,15 @@ const Profile = () => {
                     </p>
                     <Divider/>
 
-                    <p>Address 
-                      <div style={{margin:"10px"}}>{data.address}</div>
-                    </p>
                     <p>State 
                       <div>{data.state}</div>
                     </p>
-                    <Divider/>
-                    <p>DOB 
-                      <div>{data.dob}</div>
-                    </p>
-                    <Divider/>
-                  </div>
+                    
+                    </div>
+                    
+                    <h2>Finance Information</h2>
 
-                  <Divider orientation='vertical' flexItem/>
-
-          
                     <div className="rightside">
-                    <p>Aadhar No 
-                      <div>{data.aadharNo}</div>
-                    </p>
-                    <Divider/>
-
-                    <p>Pan No 
-                      <div>{data.panNo}</div>
-                    </p>
-                    <Divider/>
 
                     <p>account No 
                       <div>{data.accountNo}</div>
@@ -99,12 +118,16 @@ const Profile = () => {
                     <p>Registration Pay 
                       <div>{data.registrationPay}</div>
                     </p>
-                      <div className='customerbtn'>
+
+                    <Divider/>
+
+                    <div className='customerbtn'>
                         <Button variant='contained' color='error'   onClick={()=> handleLogout()} >
                         Log Out
                         </Button>
                       </div>
                     </div>
+
                   </div>
             </div>
          </div>
