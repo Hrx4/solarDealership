@@ -40,6 +40,6 @@ app.use('/login' , require('./routes/login'))
 app.use('/customer', require('./routes/customerRoutes'))
 
 // Start the server
-app.listen(5000, () => {
+app.listen(8080, () => {
   console.log(`Server is running `);
 });
